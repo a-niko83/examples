@@ -8,11 +8,6 @@ public class User {
     String name;
     List<Auto> autos;
 
-    public User(int id) {
-        this.id = id;
-        autos = new ArrayList<>();
-    }
-
     public User(int id, String name) {
         this.id = id;
         this.name = name;

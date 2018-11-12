@@ -13,7 +13,7 @@ import java.util.*;
 @Profile("!jdbc")
 public class InMemoryUserImpl implements UserDAO {
 
-    private Map<Integer, User> users = new HashMap<>();
+    private final Map<Integer, User> users = new HashMap<>();
 
     @Override
     public void create(User user) throws UserException {
@@ -21,18 +21,8 @@ public class InMemoryUserImpl implements UserDAO {
     }
 
     @Override
-    public User getById(int id) throws UserException {
-        return null;
-    }
-
-    @Override
     public void update(User user) throws UserException {
         users.replace(user.getId(), user);
-    }
-
-    @Override
-    public void removeAll() throws UserException {
-        users = new HashMap<>();
     }
 
     @Override

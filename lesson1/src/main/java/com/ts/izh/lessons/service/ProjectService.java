@@ -11,8 +11,6 @@ public interface ProjectService {
     void createUser(User user) throws UserException;
     void createAuto(Auto auto) throws AutoException;
     void addAtoToUser(User user, Auto auto) throws UserException, AutoException;
-    List<User> getAllUsers() throws UserException, AutoException;
-    List<Auto> getAllAutos(User user) throws AutoException;
-    void removeAllUsers() throws UserException;
-    void removeAllAutos() throws AutoException;
+    List<User> getAllUsers() throws UserException;
+    List<Auto> getAllAutos() throws AutoException;
 }
