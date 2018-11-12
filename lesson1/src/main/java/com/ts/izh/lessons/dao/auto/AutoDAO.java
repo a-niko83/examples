@@ -10,5 +10,7 @@ import java.util.List;
 public interface AutoDAO {
     void create(Auto auto) throws AutoException;
     void update(Auto auto) throws AutoException;
+    void removeAll() throws AutoException;
+    List<Auto>getAutos(User user) throws AutoException;
     List<Auto>getAllAutos() throws AutoException;
 }

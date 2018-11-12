@@ -8,6 +8,7 @@ public class Auto {
     public Auto(int id, String model) {
         this.id = id;
         this.model = model;
+        this.user = null;
     }
 
     public int getId() {
@@ -36,9 +37,11 @@ public class Auto {
 
     @Override
     public String toString() {
-        return "Auto{" +
-                "id=" + id +
-                ", model='" + model + '\''+
-                '}';
+        final StringBuffer sb = new StringBuffer("Auto{");
+        sb.append("id=").append(id);
+        sb.append(", model='").append(model).append('\'');
+        if (user!=null) sb.append(", user=").append(user.getName());
+        sb.append('}');
+        return sb.toString();
     }
 }

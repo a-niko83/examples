@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface UserDAO {
     void create(User user) throws UserException;
+    User getById(int id) throws UserException;
     void update(User user) throws UserException;
+    void removeAll() throws UserException;
     List<User>getAllUsers() throws UserException;
 }

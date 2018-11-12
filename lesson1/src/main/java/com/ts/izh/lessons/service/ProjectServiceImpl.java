@@ -40,12 +40,31 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public List<User> getAllUsers() throws UserException {
-        return userDAO.getAllUsers();
+    public List<User> getAllUsers() throws UserException, AutoException {
+        List<User> users = userDAO.getAllUsers();
+        for (User user : users) {
+            List<Auto> autos = getAllAutos(user);
+            user.setAutos(autos);
+        }
+        return users;
     }
 
     @Override
-    public List<Auto> getAllAutos() throws AutoException {
-        return autoDAO.getAllAutos();
+    public List<Auto> getAllAutos(User user) throws AutoException {
+        if (user==null){
+            return autoDAO.getAllAutos();
+        } else {
+            return autoDAO.getAutos(user);
+        }
+    }
+
+    @Override
+    public void removeAllUsers() throws UserException {
+        userDAO.removeAll();
+    }
+
+    @Override
+    public void removeAllAutos() throws AutoException {
+        autoDAO.removeAll();
     }
 }
