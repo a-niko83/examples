@@ -20,7 +20,7 @@ public class MainController {
     @GetMapping("/log/{value}")
     public ResponseEntity calculateLog(@PathVariable("value") double value) {
         log.info("Calculate log({})", value);
-        if (workingTime.time() < 60000) {
+        if (!workingTime.isStarted()) {
             return ResponseEntity.badRequest().build();
         }
         return ResponseEntity.ok(Math.log(value));

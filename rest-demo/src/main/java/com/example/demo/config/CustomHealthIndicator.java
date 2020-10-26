@@ -13,8 +13,10 @@ public class CustomHealthIndicator implements HealthIndicator {
 
     @Override
     public Health health() {
-        Health.Builder status = Health.up();
-        if (workingTime.time() < 60000) {
+        Health.Builder status;
+        if (workingTime.isStarted()) {
+            status = Health.up();
+        } else {
             status = Health.down();
         }
         return status.build();
